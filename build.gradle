@@ -1,0 +1,45 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'war'
+
+// 프로젝트 버젼 설정
+version = "1.0.0-SNAPSHOT"
+
+// 버젼 설정 (플러스인관리)
+ext.springVersion = '3.2.1.RELEASE'
+
+// 저장소 설정
+repositories {
+    maven { url 'http://repo.springsource.org/libs-release' }
+    maven { url 'http://repo.springsource.org/libs-milestone' }
+    maven { url 'http://repo.springsource.org/plugins-release' }
+    maven { url 'https://oss.sonatype.org/content/groups/public' }
+    mavenCentral()
+}
+
+// 의존성 설정
+dependencies {
+    compile "org.springframework:spring-context:$springVersion",
+            "org.springframework:spring-context-support:$springVersion",
+            "org.springframework:spring-web:$springVersion",
+            "org.springframework:spring-webmvc:$springVersion"
+
+    providedCompile 'org.apache.tomcat:tomcat-servlet-api:7.0.30',
+            'org.apache.tomcat:tomcat-jsp-api:7.0.30'
+
+    testCompile "org.springframework:spring-test:$springVersion",
+            'junit:junit:4.11',
+            'org.mockito:mockito-core:1.9.0'
+}
+
+sourceCompatibility = '1.6'
+targetCompatibility = '1.6'
+
+
+// idea 설정
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}
