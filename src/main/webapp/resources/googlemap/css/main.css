@@ -1,0 +1,22 @@
+body{
+	background-color: transparent;
+}
+
+.background{
+	position:fixed;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.8;
+	z-index: 999;
+}
+
+#postButton{
+	float: right;
+}
+
+.modal{
+	z-index: 999;
+}
